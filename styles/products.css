@@ -1,0 +1,27 @@
+/*
+chang fonts and font-size / color?
+change headers and button styles
+
+check on spacing
+*/
+container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    list-style-type: none;
+    background-color: #ECE7E1;
+    flex-direction: column;
+    border-radius: 3px;
+    padding: .8rem;
+    margin: 1rem;
+    box-shadow: 1px 4px 8px lightgrey;
+}
+
+.product--image {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 3px;
+}
