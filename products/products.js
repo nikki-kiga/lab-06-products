@@ -29,7 +29,7 @@ const casioCalculator = {
     cost: 11.95
 };
 
-const Tamagotchi = {
+const tamagotchi = {
     id: '003',
     name: 'Tamagotchi Generation One',
     image: '',
@@ -78,3 +78,13 @@ const palmPilot = {
     price: 1.00,
     cost: 0.55
 };
+const products = [
+    casioBabyG,
+    casioCalculator,
+    tamagotchi,
+    gameBoy,
+    ringToss,
+    walkman,
+    palmPilot
+];
+export default products;
