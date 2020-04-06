@@ -74,7 +74,7 @@ const palmPilot = {
     name: 'Palm Pilot',
     image: '',
     description: 'Personal digital assistant ',
-    category: '',
+    category: 'Device',
     price: 1.00,
     cost: 0.55
 };
