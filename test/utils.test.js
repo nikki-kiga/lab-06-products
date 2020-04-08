@@ -5,6 +5,8 @@ import { findById, calcLineItem, calcOrderTotal } from '../common/utils.js';
 
 const test = QUnit.test;
 
+QUnit.module('Utils Tests');
+
 test('Test for IN the array for findByID', function(assert) {
     //Arrange
     // Set up your parameters and expectations

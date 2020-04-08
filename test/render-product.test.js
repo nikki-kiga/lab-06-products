@@ -2,6 +2,8 @@ import renderProducts from '../products/render-products.js';
 
 const test = QUnit.test;
 
+QUnit.module('Render Products');
+
 test('Test for casio calculator watch', function(assert) {
     //Arrange
     // Set up your parameters and expectations

@@ -9,12 +9,12 @@ const orderTotalCell = document.getElementById('order-total-dest');
 cart.forEach(item => {
     //find the matching product
     const product = findById(products, item.id);
-
+    
     //call and receive returned dom
     const cartRow = renderLineItem(item, product);
 
     //attach to cart container
-    cartTable.append(cartRow);
+    cartTable.appendChild(cartRow);
 });
 
 const orderTotal = calcOrderTotal(cart, products);
