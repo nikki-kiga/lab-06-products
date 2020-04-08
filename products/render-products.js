@@ -1,4 +1,4 @@
-import { findById } from '../common/utils.js';
+import { getCart, addToCart } from '../shopping-cart/cart-api.js';
 
 export default function renderProducts(product) {
     //create an li element
@@ -32,7 +32,7 @@ export default function renderProducts(product) {
     productAdd.value = product.id;
     productAdd.addEventListener('click', () => {
         //Check if there is a cart in LocalStorage
-        const stringCart = localStorage.getItem('CART');
+        const stringCart = getCart();
         let tempCart = [];
         //If not in storage create an empty array []
         //If there is a cart in localStorage turn into an array using JSON.parse
@@ -40,18 +40,20 @@ export default function renderProducts(product) {
             tempCart = JSON.parse(stringCart);
         }
         //Check if there is an existing product match (use findById)
-        let itemMatch = findById(tempCart, product.id); //or should I use product.id
+        // let itemMatch = findById(tempCart, product.id); //or should I use product.id
 
-        //if product is not in cart, add product to cart
-        if (!itemMatch) {
-            itemMatch = {
-                id: product.id,
-                quantity: 1
-            };
-            tempCart.push(itemMatch);
-        } else {
-            itemMatch.quantity++;
-        }
+        // //if product is not in cart, add product to cart
+        // if (!itemMatch) {
+        //     itemMatch = {
+        //         id: product.id,
+        //         quantity: 1
+        //     };
+        //     tempCart.push(itemMatch);
+        // } else {
+        //     itemMatch.quantity++;
+        // }
+        addToCart(tempCart, product.id, 1);
+
         //localStorage set value for cart with new cart array by using JSON.stringify
         localStorage.setItem('CART', JSON.stringify(tempCart));
         alert(`1 ${product.name} added to cart`);
