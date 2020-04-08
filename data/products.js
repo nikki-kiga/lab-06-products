@@ -65,8 +65,8 @@ const walkman = {
     image: '../assets/006-sony-walkman.jpg',
     description: 'Portable tape deck player',
     category: 'Device',
-    price: 1.00,
-    cost: 0.55
+    price: 139.99,
+    cost: 82.50
 };
 
 const palmPilot = {
