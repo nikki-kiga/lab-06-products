@@ -1,4 +1,5 @@
 import { getCart, addToCart } from '../shopping-cart/cart-api.js';
+import { addTenOptions } from '../common/utils.js';
 
 export default function renderProducts(product) {
     //create an li element
@@ -26,6 +27,8 @@ export default function renderProducts(product) {
     const productPrice = document.createElement('h4');
     productPrice.textContent = `$ ${product.price}`;
 
+    const productQuantity = addTenOptions(product.id);
+
     //create a button with value = id and textContent for button
     const productAdd = document.createElement('button');
     productAdd.textContent = 'Add To Cart';
@@ -39,29 +42,20 @@ export default function renderProducts(product) {
         if (stringCart) {
             tempCart = JSON.parse(stringCart);
         }
-        //Check if there is an existing product match (use findById)
-        // let itemMatch = findById(tempCart, product.id); //or should I use product.id
-
-        // //if product is not in cart, add product to cart
-        // if (!itemMatch) {
-        //     itemMatch = {
-        //         id: product.id,
-        //         quantity: 1
-        //     };
-        //     tempCart.push(itemMatch);
-        // } else {
-        //     itemMatch.quantity++;
-        // }
-        addToCart(tempCart, product.id, 1);
+        //set quantity equal to the matching id selected dropdown
+        const quantity = document.querySelector(`select[id=${CSS.escape(product.id)}] option:checked`).value;
+        console.log(quantity);
+        addToCart(tempCart, product.id, quantity);
 
         //localStorage set value for cart with new cart array by using JSON.stringify
         localStorage.setItem('CART', JSON.stringify(tempCart));
-        alert(`1 ${product.name} added to cart`);
+        //Change to quantity value
+        alert(`${quantity} ${product.name} added to cart`);
     });
 
 
     //append these child elements to li
-    productDisplay.append(productImg, productName, productCategory, productPrice, productAdd);
+    productDisplay.append(productImg, productName, productCategory, productPrice, productQuantity, productAdd);
     
     //return the li
     return productDisplay;

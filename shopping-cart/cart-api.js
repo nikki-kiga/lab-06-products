@@ -6,9 +6,10 @@ export function getCart() {
 }
 
 export function addToCart(cart, productID, quantity) {
-    let itemMatch = findById(cart, productID); //or should I use product.id
+    //Find matching product in cart based on productID
+    let itemMatch = findById(cart, productID);
 
-    //if product is not in cart, add product to cart
+    //If product is not in cart, add product to cart
     if (!itemMatch) {
         itemMatch = {
             id: productID,
@@ -16,11 +17,14 @@ export function addToCart(cart, productID, quantity) {
         };
         cart.push(itemMatch);
     } else {
+        //If product already exists in cart increase quantity
         itemMatch.quantity += quantity;
+        //Give alert for new quantity in cart?
     }
 
 }
 
+//Remove the cart from local storage with .removeItem
 export function clearCart() {
     localStorage.removeItem('CART');
 }
