@@ -1,11 +1,10 @@
 import products from '../data/products.js';
 import cart from '../data/cart.js';
 import renderLineItem from './render-line-item.js';
-import { findById } from '../common/utils.js';
-
-//for each item in cart, find product and generate dom, attach to cart container
+import { findById, calcOrderTotal } from '../common/utils.js';
 
 const cartTable = document.getElementById('cart-body');
+const orderTotalCell = document.getElementById('order-total-dest');
 
 cart.forEach(item => {
     //find the matching product
@@ -17,3 +16,6 @@ cart.forEach(item => {
     //attach to cart container
     cartTable.append(cartRow);
 });
+
+const orderTotal = calcOrderTotal(cart, products);
+orderTotalCell.textContent = orderTotal;

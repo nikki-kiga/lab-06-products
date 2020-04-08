@@ -16,3 +16,14 @@ export function calcLineItem(quantity, price) {
 export function formatPrice(price) {
     return `$${Number(price).toFixed(2)}`;
 }
+
+export function calcOrderTotal(cart, products) {
+    let orderTotal = 0;
+    cart.forEach(item => {
+        const product = findById(products, item.id);
+        const lineTotal = calcLineItem(item.quantity, product.price);
+        orderTotal += lineTotal;
+    });
+
+    return formatPrice(orderTotal);
+}
