@@ -30,7 +30,7 @@ if (stringCart) {
         //display alert with contents of cart JSON.stringify(cart, true, 2)
         alert(`Cart Contents: ${JSON.stringify(cart, true, 2)}`);
         
-        //Remove the cart from local storage with .removeItem
+        //Clears cart from localStorage
         clearCart();
 
         //Redirect user back to home page
