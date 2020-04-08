@@ -31,7 +31,6 @@ export function calcOrderTotal(cart, products) {
 export function addTenOptions(id) {
     const productQuantity = document.createElement('select');
     productQuantity.id = id;
-    console.log(productQuantity.id);
 
     for (let i = 1; i < 11; i++) {
         const option = document.createElement('option');

@@ -44,7 +44,7 @@ export default function renderProducts(product) {
         }
         //set quantity equal to the matching id selected dropdown
         const quantity = document.querySelector(`select[id=${CSS.escape(product.id)}] option:checked`).value;
-        console.log(quantity);
+        
         addToCart(tempCart, product.id, quantity);
 
         //localStorage set value for cart with new cart array by using JSON.stringify
