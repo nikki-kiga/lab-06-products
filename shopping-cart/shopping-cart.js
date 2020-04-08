@@ -2,13 +2,14 @@ import products from '../data/products.js';
 // import cart from '../data/cart.js'; //take this out once it's working
 import renderLineItem from './render-line-item.js';
 import { findById, calcOrderTotal } from '../common/utils.js';
+import { getCart, clearCart } from './cart-api.js';
 
 const cartTable = document.getElementById('cart-body');
 const orderTotalCell = document.getElementById('order-total-dest');
 const placeOrder = document.getElementById('submit-order');
 
 //Nab the cart from localStorage as a string
-const stringCart = localStorage.getItem('CART');
+const stringCart = getCart();
 
 //If there are things in the cart then render the cart
 if (stringCart) {
@@ -30,7 +31,7 @@ if (stringCart) {
         alert(`Cart Contents: ${JSON.stringify(cart, true, 2)}`);
         
         //Remove the cart from local storage with .removeItem
-        localStorage.removeItem('CART');
+        clearCart();
 
         //Redirect user back to home page
         window.location.href = '../';
