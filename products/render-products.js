@@ -30,20 +30,20 @@ export default function renderProducts(product) {
     const productAdd = document.createElement('button');
     productAdd.textContent = 'Add To Cart';
     productAdd.value = product.id;
-    productAdd.addEventListener('click', (product) => {
+    productAdd.addEventListener('click', () => {
         //Check if there is a cart in LocalStorage
         const stringCart = localStorage.getItem('CART');
         let tempCart = [];
         //If not in storage create an empty array []
         //If there is a cart in localStorage turn into an array using JSON.parse
-        if (stringCart !== null) {
+        if (stringCart) {
             tempCart = JSON.parse(stringCart);
         }
         //Check if there is an existing product match (use findById)
-        let itemMatch = findById(tempCart, productAdd.value); //or should I use product.id
+        let itemMatch = findById(tempCart, product.id); //or should I use product.id
 
         //if product is not in cart, add product to cart
-        if (itemMatch === null) {
+        if (!itemMatch) {
             itemMatch = {
                 id: product.id,
                 quantity: 1
@@ -54,7 +54,7 @@ export default function renderProducts(product) {
         }
         //localStorage set value for cart with new cart array by using JSON.stringify
         localStorage.setItem('CART', JSON.stringify(tempCart));
-        alert(`1 ${product.Name} added to cart`);
+        alert(`1 ${product.name} added to cart`);
     });
 
 
