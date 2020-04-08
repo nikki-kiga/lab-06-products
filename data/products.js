@@ -15,8 +15,8 @@ const casioBabyG = {
     image: '../assets/001-casio-baby-g.jpg',
     description: 'Popular watch during the 90s',
     category: 'Watch',
-    price: 1.00,
-    cost: 0.55
+    price: 87.99,
+    cost: 45.50
 };
 
 const casioCalculator = {
@@ -35,8 +35,8 @@ const tamagotchi = {
     image: '../assets/003-tamagotchi.jpg',
     description: 'A handheld digital character on a keychain',
     category: 'Games',
-    price: 1.00,
-    cost: 0.55
+    price: 33.00,
+    cost: 19.99
 };
 
 const gameBoy = {
@@ -45,8 +45,8 @@ const gameBoy = {
     image: '../assets/004-game-boy.jpg',
     description: 'Portable video console',
     category: 'Games',
-    price: 1.00,
-    cost: 0.55
+    price: 89.00,
+    cost: 67.00
 };
 
 const talkboy = {
@@ -55,8 +55,8 @@ const talkboy = {
     image: '../assets/005-talkboy.jpg',
     description: 'Handheld voice recorder',
     category: 'Device',
-    price: 1.00,
-    cost: 0.55
+    price: 24.99,
+    cost: 19.90
 };
 
 const walkman = {
@@ -75,8 +75,8 @@ const palmPilot = {
     image: '../assets/007-palm-pilot.jpg',
     description: 'Personal digital assistant ',
     category: 'Device',
-    price: 1.00,
-    cost: 0.55
+    price: 19.99,
+    cost: 10.33
 };
 const products = [
     casioBabyG,
