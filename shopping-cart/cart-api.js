@@ -17,8 +17,10 @@ export function addToCart(cart, productID, quantity) {
         };
         cart.push(itemMatch);
     } else {
+        let num = Number(itemMatch.quantity);
         //If product already exists in cart increase quantity
-        itemMatch.quantity += quantity;
+        num += Number(quantity);
+        itemMatch.quantity = num;
         //Give alert for new quantity in cart?
     }
 

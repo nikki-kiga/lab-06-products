@@ -1,5 +1,10 @@
 /*
 Come up with a Welcome Img and put into assets
 
-
 */
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+}

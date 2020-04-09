@@ -49,8 +49,11 @@ export default function renderProducts(product) {
 
         //localStorage set value for cart with new cart array by using JSON.stringify
         localStorage.setItem('CART', JSON.stringify(tempCart));
-        //Change to quantity value
-        alert(`${quantity} ${product.name} added to cart`);
+
+        //Create alertMessage for plural or not based on quantity 
+        const alertMessage = quantity > 1 ? `${quantity} ${product.name}s added to cart` : `${quantity} ${product.name} added to cart`;
+        alert(alertMessage);
+        
     });
 
 
