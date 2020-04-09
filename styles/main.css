@@ -6,26 +6,26 @@
     box-sizing: border-box; 
 }
 
+header {
+    background-color: #716055;
+}
+
 h1 {
     font-family: 'Baloo Thambi 2', sans-serif;
-    text-align: center;
+    color:  #DADADA;
+    text-align: right;
     font-size: 3rem;
     padding: 1rem;
 }
 
-h2 {
-    font-family: 'Work Sans';
-    margin-left: 1rem;
-    padding-top: 1rem;
-}
-
-h3, h4 {
-    font-family: 'Slabo 27px', sans-serif;
-}
-
 main {
-    margin: 0 2rem;
     background-color: rgb(242, 237, 232);
 }
 
+
+/* Credit to Geoff Graham from https://css-tricks.com/snippets/css/animated-grainy-texture/ */
+.grain {
+    background: url('http://api.thumbr.it/whitenoise-1920x1080.png');
+    opacity: 0.3;
+}
 /* add a class for dark mode */
