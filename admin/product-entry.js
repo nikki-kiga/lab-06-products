@@ -19,11 +19,11 @@ entryForm.addEventListener('submit', (e) => {
 
     const imgEntry = entryData.get('image');
 
-    // if (imgEntry.startsWith('http')) {
-    //     imgPath = imgEntry;
-    // } else {
-    //     imgPath = '../assets/' + imgEntry;
-    // }
+    if (imgEntry.startsWith('http')) {
+        imgPath = imgEntry;
+    } else {
+        imgPath = '../assets/' + imgEntry;
+    }
 
     const newProduct = {
         id: Math.ceil(Math.random() * 10000),
