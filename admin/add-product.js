@@ -1,4 +1,4 @@
-import { getProducts } from "../common/utils";
+import { getProducts } from '../common/utils';
 
 //Assumes that the static products are stored in localStorage and does not currently validate if the product already exists in store
 export function addProduct(newProduct) {
