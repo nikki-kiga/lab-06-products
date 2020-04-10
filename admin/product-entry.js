@@ -4,6 +4,7 @@ import { renderEachProduct } from '../common/utils.js';
 
 const entryForm = document.getElementById('product-entry');
 const productsContainer = document.getElementById('container-products');
+renderEachProduct('admin', productsContainer);
 
 //When the add product form is submitted
 entryForm.addEventListener('submit', (e) => {
@@ -35,7 +36,6 @@ entryForm.addEventListener('submit', (e) => {
 
     //Reset the form
     entryForm.reset();
-
+    renderEachProduct('admin', productsContainer);
 });
 
-renderEachProduct('admin', productsContainer);
