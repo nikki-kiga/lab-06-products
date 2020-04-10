@@ -6,6 +6,6 @@ const products = getProducts();
 
 //Render each product and add to product container
 products.forEach((product) => {
-    const rendered = renderProducts(product);
+    const rendered = renderProducts(product, 'inventory');
     productsContainer.appendChild(rendered);
 });

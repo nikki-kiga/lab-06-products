@@ -1,7 +1,7 @@
 import { getCart, addToCart } from '../shopping-cart/cart-api.js';
 import { addTenOptions } from '../common/utils.js';
 
-export default function renderProducts(product) {
+export default function renderProducts(product, display) {
     //create an li element
     const productDisplay = document.createElement('li');
 
@@ -27,38 +27,44 @@ export default function renderProducts(product) {
     const productPrice = document.createElement('h4');
     productPrice.textContent = `$ ${product.price}`;
 
-    const productQuantity = addTenOptions(product.id);
+    if (display === 'inventory') {
 
-    //create a button with value = id and textContent for button
-    const productAdd = document.createElement('button');
-    productAdd.textContent = 'Add To Cart';
-    productAdd.value = product.id;
-    productAdd.addEventListener('click', () => {
-        //Check if there is a cart in LocalStorage
-        const stringCart = getCart();
-        let tempCart = [];
-        //If not in storage create an empty array []
-        //If there is a cart in localStorage turn into an array using JSON.parse
-        if (stringCart) {
-            tempCart = JSON.parse(stringCart);
-        }
-        //set quantity equal to the matching id selected dropdown
-        const quantity = document.querySelector(`select[id=${CSS.escape(product.id)}] option:checked`).value;
+            //add 10 select drop down options
+        const productQuantity = addTenOptions(product.id);
+
+        //create a button with value = id and textContent for button
+        const productAdd = document.createElement('button');
+        productAdd.textContent = 'Add To Cart';
+        productAdd.value = product.id;
+        productAdd.addEventListener('click', () => {
+            //Check if there is a cart in LocalStorage
+            const stringCart = getCart();
+            let tempCart = [];
+            //If not in storage create an empty array []
+            //If there is a cart in localStorage turn into an array using JSON.parse
+            if (stringCart) {
+                tempCart = JSON.parse(stringCart);
+            }
+            //set quantity equal to the matching id selected dropdown
+            const quantity = document.querySelector(`select[id=${CSS.escape(product.id)}] option:checked`).value;
+            
+            addToCart(tempCart, product.id, quantity);
+
+            //localStorage set value for cart with new cart array by using JSON.stringify
+            localStorage.setItem('CART', JSON.stringify(tempCart));
+
+            //Create alertMessage for plural or not based on quantity 
+            const alertMessage = quantity > 1 ? `${quantity} ${product.name}s added to cart` : `${quantity} ${product.name} added to cart`;
+            alert(alertMessage);            
+        });
+
+        //append these child elements to li
+        productDisplay.append(productImg, productName, productCategory, productPrice, productQuantity, productAdd);
+
+    } else if (display === 'admin') {
         
-        addToCart(tempCart, product.id, quantity);
+    }
 
-        //localStorage set value for cart with new cart array by using JSON.stringify
-        localStorage.setItem('CART', JSON.stringify(tempCart));
-
-        //Create alertMessage for plural or not based on quantity 
-        const alertMessage = quantity > 1 ? `${quantity} ${product.name}s added to cart` : `${quantity} ${product.name} added to cart`;
-        alert(alertMessage);
-        
-    });
-
-
-    //append these child elements to li
-    productDisplay.append(productImg, productName, productCategory, productPrice, productQuantity, productAdd);
     
     //return the li
     return productDisplay;

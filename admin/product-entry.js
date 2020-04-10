@@ -8,7 +8,6 @@ const entryForm = document.getElementById('product-entry');
 //Initialize Products with products
 localStorage.setItem('PRODUCTS', JSON.stringify(products));
 
-
 //When the add product form is submitted
 entryForm.addEventListener('submit', (e) => {
     e.preventDefault();
