@@ -1,10 +1,12 @@
-import { getProducts, findById } from '../common/utils';
+import { getProducts, findById } from '../common/utils.js';
 
 export function removeProduct(productRemove) {
     
     const products = getProducts();
     //check if the productRemove is in products
-    const productExists = findById(products, productRemove);
+    const productExists = findById(products, productRemove.id);
+    
+    debugger;
 
     if (productExists) {
         const editedProducts = [];
@@ -14,6 +16,8 @@ export function removeProduct(productRemove) {
             }
         });
         localStorage.setItem('PRODUCTS', JSON.stringify(editedProducts));
+        alert('The product was removed');
+        
     } else {
         alert('This product is not in the product list');
     }

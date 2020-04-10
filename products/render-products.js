@@ -1,5 +1,7 @@
 import { getCart, addToCart } from '../shopping-cart/cart-api.js';
 import { addTenOptions } from '../common/utils.js';
+import { removeProduct } from '../admin/remove-product.js';
+
 
 export default function renderProducts(product, display) {
     //create an li element
@@ -63,6 +65,17 @@ export default function renderProducts(product, display) {
 
     } else if (display === 'admin') {
         
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Remove Product';
+        removeButton.value = product.id;
+        removeButton.addEventListener('click', () => {
+            removeProduct(product);
+        });
+
+        //append these child elements to li
+        productDisplay.append(productImg, productName, productCategory, productPrice, removeButton);
+    } else {
+        throw 'Need a display to be specified';
     }
 
     

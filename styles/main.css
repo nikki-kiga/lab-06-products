@@ -22,6 +22,21 @@ main {
     background-color: rgb(242, 237, 232);
 }
 
+container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+container li {
+    list-style-type: none;
+    background-color: #ECE7E1;
+    flex-direction: column;
+    border-radius: 3px;
+    padding: .8rem;
+    margin: 1rem;
+    box-shadow: 1px 4px 8px lightgrey;
+}
+
 .product--image {
     height: 300px;
     width: 300px;
