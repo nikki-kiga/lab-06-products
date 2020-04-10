@@ -3,7 +3,6 @@ import renderProducts from '../products/render-products.js';
 
 export function getProducts() {
     let productsString = localStorage.getItem('PRODUCTS');
-
     if (!productsString) {
         localStorage.setItem('PRODUCTS', JSON.stringify(products));
         productsString = localStorage.getItem('PRODUCTS');
@@ -16,8 +15,9 @@ export function renderEachProduct(display, container) {
     const products = getProducts();
 
     //Render each product and add to product container
+    //NEED TO CHECK IF THERE ARE ALREADY ELEMENTS IN THE CONTAINER - or clear the container?
     products.forEach((product) => {
-        const rendered = renderProducts(product, display);
+        const rendered = renderProducts(product, display, container);
         container.appendChild(rendered);
     });
     
