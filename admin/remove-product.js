@@ -1,6 +1,7 @@
-import { getProducts, findById } from '../common/utils.js';
+import { getProducts, findById, renderEachProduct } from '../common/utils.js';
 
-export function removeProduct(productRemove) {
+
+export function removeProduct(productRemove, container) {
     
     const products = getProducts();
     //check if the productRemove is in products
@@ -15,6 +16,9 @@ export function removeProduct(productRemove) {
         });
         localStorage.setItem('PRODUCTS', JSON.stringify(editedProducts));
         alert('The product was removed');
+        //Clear the innerHTML of the container before re-rednering with the updated list of products
+        container.innerHTML = '';
+        renderEachProduct('admin', container);
 
     } else {
         alert('This product is not in the product list');

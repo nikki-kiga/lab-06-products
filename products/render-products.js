@@ -3,7 +3,7 @@ import { addTenOptions } from '../common/utils.js';
 import { removeProduct } from '../admin/remove-product.js';
 
 
-export default function renderProducts(product, display) {
+export default function renderProducts(product, display, container) {
     //create an li element
     const productDisplay = document.createElement('li');
 
@@ -68,12 +68,13 @@ export default function renderProducts(product, display) {
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove Product';
         removeButton.value = product.id;
-        removeButton.addEventListener('click', () => {
-            removeProduct(product);
-        });
-
         //append these child elements to li
         productDisplay.append(productImg, productName, productCategory, productPrice, removeButton);
+
+        removeButton.addEventListener('click', () => {
+            removeProduct(product, container);
+        });
+
     } else {
         throw 'Need a display to be specified';
     }
