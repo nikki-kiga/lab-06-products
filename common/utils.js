@@ -1,3 +1,15 @@
+import products from '../data/products.js';
+
+export function getProducts() {
+    let productsString = localStorage.getItem('PRODUCTS');
+
+    if (!productsString) {
+        localStorage.setItem('PRODUCTS', JSON.stringify(products));
+        productsString = localStorage.getItem('PRODUCTS');
+    }
+    return JSON.parse(productsString);
+}
+
 export function findById(array, id) {
     let found = null;
     array.forEach(item => {
