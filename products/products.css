@@ -8,29 +8,8 @@ check on spacing
 main {
     margin: 0 2rem;
 }
-container {
-    display: flex;
-    flex-wrap: wrap;
-}
 
 h2 {
     margin-left: 1rem;
     padding-top: 1rem;
-}
-
-li {
-    list-style-type: none;
-    background-color: #ECE7E1;
-    flex-direction: column;
-    border-radius: 3px;
-    padding: .8rem;
-    margin: 1rem;
-    box-shadow: 1px 4px 8px lightgrey;
-}
-
-.product--image {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-    border-radius: 3px;
 }

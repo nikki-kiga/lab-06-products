@@ -1,4 +1,5 @@
 import products from '../data/products.js';
+import renderProducts from '../products/render-products.js';
 
 export function getProducts() {
     let productsString = localStorage.getItem('PRODUCTS');
@@ -10,6 +11,20 @@ export function getProducts() {
     return JSON.parse(productsString);
 }
 
+//Given the display case renders each product
+export function renderEachProduct(display, container) {
+    const products = getProducts();
+
+    //Render each product and add to product container
+    products.forEach((product) => {
+        const rendered = renderProducts(product, display);
+        container.appendChild(rendered);
+    });
+    
+}
+
+//Takes an array and an id and returns if it finds a matching id within the array
+//Curious to see if I can do a binary search for this function!
 export function findById(array, id) {
     let found = null;
     array.forEach(item => {
@@ -19,8 +34,9 @@ export function findById(array, id) {
     });
     return found;
 }
-//Curious to see if I can do a binary search for the above function!
 
+
+/*--------------------------------- Order Helper Functions----------------------------------------*/
 export function calcLineItem(quantity, price) {
     return Math.round(Number(quantity) * Number(price) * 100) / 100;
 }
@@ -40,6 +56,7 @@ export function calcOrderTotal(cart, products) {
     return formatPrice(orderTotal);
 }
 
+//Should try and change this to a forEach function
 export function addTenOptions(id) {
     const productQuantity = document.createElement('select');
     productQuantity.id = id;

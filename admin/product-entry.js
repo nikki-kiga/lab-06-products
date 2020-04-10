@@ -1,13 +1,9 @@
 
 import { addProduct } from './add-product.js';
-import { getProducts } from '../common/utils.js';
+import { renderEachProduct } from '../common/utils.js';
 
-const products = getProducts();
 const entryForm = document.getElementById('product-entry');
-
-//Initialize Products with products
-localStorage.setItem('PRODUCTS', JSON.stringify(products));
-
+const productsContainer = document.getElementById('container-products');
 
 //When the add product form is submitted
 entryForm.addEventListener('submit', (e) => {
@@ -35,7 +31,6 @@ entryForm.addEventListener('submit', (e) => {
         cost: entryData.get('cost')
     };
 
-    console.log(newProduct);
     addProduct(newProduct);
 
     //Reset the form
@@ -43,3 +38,4 @@ entryForm.addEventListener('submit', (e) => {
 
 });
 
+renderEachProduct('admin', productsContainer);

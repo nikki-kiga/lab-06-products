@@ -20,7 +20,7 @@ test('Test for casio calculator watch', function(assert) {
     };
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = renderProducts(object);
+    const actual = renderProducts(object, 'inventory');
     const outerHTMLActual = actual.outerHTML;
     //Assert
     // Make assertions about what is expected valid result
@@ -43,7 +43,7 @@ test('Test for casio game boy', function(assert) {
     };
     //Act 
     // Call the function you're testing and set the result to a const
-    const actual = renderProducts(object);
+    const actual = renderProducts(object, 'inventory');
     const outerHTMLActual = actual.outerHTML;
     //Assert
     // Make assertions about what is expected valid result
