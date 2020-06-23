@@ -1,8 +1,9 @@
-import products from '../data/products.js';
-// import cart from '../data/cart.js'; //take this out once it's working
+
 import renderLineItem from './render-line-item.js';
-import { findById, calcOrderTotal } from '../common/utils.js';
+import { findById, calcOrderTotal, getProducts } from '../common/utils.js';
 import { getCart, clearCart } from './cart-api.js';
+
+const products = getProducts();
 
 const cartTable = document.getElementById('cart-body');
 const orderTotalCell = document.getElementById('order-total-dest');
